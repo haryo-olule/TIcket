@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --text-color: black;
+  --main-color: #0ef;
+}
+*::selection {
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+section{
+  padding: 2rem 9%;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 9%;
+  z-index: 100;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+.navbar a {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+nav i {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  font-weight: 500;
+  font-weight: bolder;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.logo a {
+  color: var(--text-color);
+  font-weight: bolder;
+}
+.btn-menu {
+  display: none;
+}
+.btn a {
+  color: white;
+  margin-left: 0.5rem;
+  background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    position: absolute;
+    top: -700%; /* Initially hidden above the screen */
+    left: 20px; /* Set to align with the left edge */
+    width: 82%;
+    background-color: var(--second-bg-color);
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: top 0.7s ease-in-out; /* Add transition for sliding */
+  }
+  .btn-menu {
+    display: block;
+    order: 1;
+  }
+  .btn a {
+    font-size: 1.3rem;
+  }
+  .navbar.active {
+    top: 100%; /* Slides down into view */
+  }
+}
+.home-section {
+  padding: 2rem 9%;
+  width: 100%;
+  height: 100vh;
+  background-image: url(/img/pexels-michael-spadoni-269949-813465.jpg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.home-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+.home-row .home-col img {
+  width: 120%;
+  object-fit: contain;
+  animation: moveUp 4s ease-in-out infinite; /* Adjust duration and timing as needed */
+}
+.home-col h3 {
+  font-size: 1.5rem;
+  text-wrap: balance;
+  line-height: 4rem;
+}
+.home-col h1 {
+  font-size: 5rem;
+  text-wrap: pretty;
+  line-height: 7rem;
+  margin-bottom: 30px;
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Move up slightly */
+  }
+  100% {
+    transform: translateY(0); /* Return to the original position */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-row .home-col img {
+    display: none;
+  }
+}
+.ticket-row {
+  display: flex;
+  justify-content: space-between; /* Center items horizontally */
+  background-color: var(--main-color);
+  padding: 20px;
+  
+  align-items: center; /* Center items vertically */
+  
+}
+.ticket-row:nth-child(1) {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.ticket-row:nth-child(2) {
+  background-color: white;
+  border-radius: none
+}
+.ticket-row:nth-child(3) {
+  background-color: white;
+  border-radius: none
+}
+
+
+
+
+
+
+
+.ticket-col{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+}
+.ticket-col h3{
+  color: black;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+.ticket-col img{
+  width: 100%;
+}
+
+
+.ticket-row form {
+  display: flex;
+  gap: 20px;
+  
+}
+
+.ticket-row label {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.ticket-row input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.ticket-row input[type="radio"]:checked {
+  accent-color: #007BFF; /* Change the color of selected radio buttons */
+}
+
+.form-container {
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.form-container .form-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 10px;
+  width: auto
+}
+
+
+.form-field label {
+  font-size: 13px;
+  color: black;
+  margin-bottom: 8px;
+  display: block;
+}
+.form-img{
+  margin-top: 30px;
+}
+
+.inputfield {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.inputfield:focus {
+  border-color: #007bff; /* Focus border color */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional shadow */
+}
+
+.autocomplete-list {
+  max-height: 200px; /* Adjust the max height as needed */
+  overflow-y: auto;  /* Enable scrolling when the content exceeds max-height */
+  border: 1px solid #ddd;
+  background-color: #fff;
+  width: 100%; /* Match the width of the input field */
+  position: absolute; /* To position it below the input field */
+  z-index: 1; /* Ensure the list appears above other content */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none; /* Initially hidden */
+  transform: translateY(-10px); /* Start slightly above */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+
+.autocomplete-list1 {
+  max-height: 200px; /* Adjust the max height as needed */
+  overflow-y: auto;  /* Enable scrolling when the content exceeds max-height */
+  border: 1px solid #ddd;
+  background-color: white;
+  width: 100%; /* Match the width of the input field */
+  position: absolute; /* To position it below the input field */
+  z-index: 1; /* Ensure the list appears above other content */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none; /* Initially hidden */
+  left: -80%;
+  transform: translateY(-10px); /* Start slightly above */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+
+.autocomplete-list li, .autocomplete-list1 li {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+.autocomplete-list li:hover {
+  background-color: #eee;
+}
+
+
+.show-autocomplete {
+  display: block;
+  position: absolute;
+  top: 100%; /* Position the list directly below the input field */
+  max-width: 19.8%;
+  left: 0;
+  right: 0;
+  overflow-y: auto;  /* Scroll if there are too many suggestions */
+
+
+}
+#to-autocomplete-list.show-autocomplete {
+  position: absolute;
+  top: 100%; /* Position the list directly below the input field */
+  max-width: 19.8%;
+  left: 24.6%;
+  right: 0;
+  overflow-y: auto;  /* Scroll if there are too many suggestions */
+ 
+}
+/* Initially hide the passenger-row dropdown */
+
+.passenger-row {
+  max-height: auto; /* Adjust the max height as needed */
+  overflow-y: auto;  /* Enable scrolling when the content exceeds max-height */
+  background-color: #fff;
+  width: 20%; /* Match the width of the input field */
+  position: absolute; /* To position it below the input field */
+  z-index: 1; /* Ensure the list appears above other content */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  
+}
+
+.passenger-row h1 {
+  margin-bottom: 10px;
+  position: relative; /* Ensure that the ::after element is positioned relative to the h1 */
+}
+
+.passenger-row h1::after {
+  content: '';
+  display: block;
+  width: 100%; /* Set to your desired width, or 100% for full width */
+  height: 2px; /* Set the thickness of the horizontal line */
+  background-color: #000; /* Set the color of the line */
+  margin-top: 10px; /* Space between the h1 and the line */
+}
+
+.passenger-col{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.passenger-textlabel{
+  font-size: 14px;
+
+}
+.increment{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.incrementba{
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+
+
+}
+.button-link {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  outline: none;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  
+}
